@@ -30,5 +30,10 @@ public class HotelPackage {
     private
     double hp_price;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "h_id",referencedColumnName = "h_id")
+    private
+    Hotel hotel;
+
 
 }
