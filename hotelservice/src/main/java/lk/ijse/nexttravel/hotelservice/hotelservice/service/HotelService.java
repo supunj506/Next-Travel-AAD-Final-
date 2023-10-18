@@ -8,5 +8,12 @@
 
 package lk.ijse.nexttravel.hotelservice.hotelservice.service;
 
+
+import lk.ijse.nexttravel.hotelservice.hotelservice.dto.HotelDTO;
+
 public interface HotelService {
+    HotelDTO saveHotel (HotelDTO hotelDTO);
+    HotelDTO getSelectHotel(String id);
+    void updateHotel(HotelDTO hotelDTO);
+    void deleteHotel(String id);
 }
