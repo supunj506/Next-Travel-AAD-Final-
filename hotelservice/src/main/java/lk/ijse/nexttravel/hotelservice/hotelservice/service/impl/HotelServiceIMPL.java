@@ -8,18 +8,33 @@
 
 package lk.ijse.nexttravel.hotelservice.hotelservice.service.impl;
 
+import lk.ijse.nexttravel.hotelservice.hotelservice.dao.HotelDAO;
 import lk.ijse.nexttravel.hotelservice.hotelservice.dto.HotelDTO;
 import lk.ijse.nexttravel.hotelservice.hotelservice.service.HotelService;
+import lk.ijse.nexttravel.hotelservice.hotelservice.util.Convertor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.UUID;
 
 @Service
 @Transactional
 public class HotelServiceIMPL implements HotelService {
+    @Autowired
+    private HotelDAO hotelDAO;
+
+    @Autowired
+    private Convertor convertor;
+
     @Override
     public HotelDTO saveHotel(HotelDTO hotelDTO) {
-
-        return null;
+        if(hotelDAO.existsById(hotelDTO.getH_id())){
+            throw new RuntimeException("Already in System");
+        }else {
+            hotelDTO.setH_id(UUID.randomUUID().toString());
+            return convertor.getHotelDTO(hotelDAO.save(convertor.getHotelEntity(hotelDTO)));
+        }
     }
 
     @Override
@@ -36,4 +51,6 @@ public class HotelServiceIMPL implements HotelService {
     public void deleteHotel(String id) {
 
     }
+
+
 }
