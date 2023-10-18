@@ -50,6 +50,20 @@ public class HotelServiceIMPL implements HotelService {
 
     @Override
     public void updateHotel(HotelDTO hotelDTO) {
+        Optional<Hotel> byId = hotelDAO.findById(hotelDTO.getH_id());
+        if(byId.isPresent()){
+            byId.get().setH_name(hotelDTO.getH_name());
+            byId.get().setH_starRate(hotelDTO.getH_starRate());
+            byId.get().setH_location(hotelDTO.getH_location());
+            byId.get().setH_map(hotelDTO.getH_map());
+            byId.get().setH_email(hotelDTO.getH_email());
+            byId.get().setH_contact01(hotelDTO.getH_contact01());
+            byId.get().setH_contact02(hotelDTO.getH_contact02());
+            byId.get().setH_cancellation(hotelDTO.getH_cancellation());
+            byId.get().setH_petStatus(hotelDTO.getH_petStatus());
+        }else {
+            throw new RuntimeException("Not Found");
+        }
 
 
     }
