@@ -30,9 +30,6 @@ public class Hotel {
     String h_name;
     @Column(nullable = false)
     private
-    String h_category;
-    @Column(nullable = false)
-    private
     String h_starRate;
     @Column(nullable = false)
     private

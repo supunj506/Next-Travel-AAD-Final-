@@ -19,7 +19,6 @@ import java.io.Serializable;
 public class HotelDTO implements Serializable {
     String h_id;
     String h_name;
-    String h_category;
     String h_starRate;
     String h_location;
     String h_map;
@@ -29,9 +28,8 @@ public class HotelDTO implements Serializable {
     String h_petStatus;
     String h_cancellation;
 
-    public HotelDTO(String h_name, String h_category, String h_starRate, String h_location, String h_map, String h_email, String h_contact01, String h_contact02, String h_petStatus, String h_cancellation) {
+    public HotelDTO(String h_name, String h_starRate, String h_location, String h_map, String h_email, String h_contact01, String h_contact02, String h_petStatus, String h_cancellation) {
         this.h_name = h_name;
-        this.h_category = h_category;
         this.h_starRate = h_starRate;
         this.h_location = h_location;
         this.h_map = h_map;

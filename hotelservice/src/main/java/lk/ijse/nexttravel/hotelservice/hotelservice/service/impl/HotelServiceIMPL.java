@@ -29,12 +29,10 @@ public class HotelServiceIMPL implements HotelService {
 
     @Override
     public HotelDTO saveHotel(HotelDTO hotelDTO) {
-        if(hotelDAO.existsById(hotelDTO.getH_id())){
-            throw new RuntimeException("Already in System");
-        }else {
+
             hotelDTO.setH_id(UUID.randomUUID().toString());
             return convertor.getHotelDTO(hotelDAO.save(convertor.getHotelEntity(hotelDTO)));
-        }
+
     }
 
     @Override

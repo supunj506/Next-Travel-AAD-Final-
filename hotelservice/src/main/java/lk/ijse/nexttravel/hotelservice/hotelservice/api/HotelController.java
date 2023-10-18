@@ -29,7 +29,7 @@ public class HotelController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(consumes = "application/json",produces = "application/json")
     HotelDTO saveHotel(@RequestBody HotelDTO hotelDTO){
-        return hotelService.saveHotel(hotelDTO);
+        return  hotelService.saveHotel(hotelDTO);
 
     }
 }
