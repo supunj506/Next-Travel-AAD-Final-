@@ -10,12 +10,14 @@ package lk.ijse.nexttravel.hotelservice.hotelservice.service.impl;
 
 import lk.ijse.nexttravel.hotelservice.hotelservice.dao.HotelDAO;
 import lk.ijse.nexttravel.hotelservice.hotelservice.dto.HotelDTO;
+import lk.ijse.nexttravel.hotelservice.hotelservice.entity.Hotel;
 import lk.ijse.nexttravel.hotelservice.hotelservice.service.HotelService;
 import lk.ijse.nexttravel.hotelservice.hotelservice.util.Convertor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -37,7 +39,7 @@ public class HotelServiceIMPL implements HotelService {
 
     @Override
     public HotelDTO getSelectHotel(String id) {
-        return null;
+    return null;
     }
 
     @Override
