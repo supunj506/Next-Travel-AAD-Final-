@@ -51,10 +51,18 @@ public class HotelServiceIMPL implements HotelService {
     @Override
     public void updateHotel(HotelDTO hotelDTO) {
 
+
     }
 
     @Override
     public void deleteHotel(String id) {
+
+        Optional<Hotel> byId = hotelDAO.findById(id);
+        if(byId.isPresent()){
+            hotelDAO.delete(hotelDAO.getReferenceById(id));
+        }else {
+            throw new RuntimeException("Not Found");
+        }
 
     }
 
