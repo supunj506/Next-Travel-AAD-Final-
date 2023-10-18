@@ -8,10 +8,12 @@
 
 package lk.ijse.nexttravel.hotelservice.hotelservice.api;
 
+import lk.ijse.nexttravel.hotelservice.hotelservice.dto.HotelDTO;
 import lk.ijse.nexttravel.hotelservice.hotelservice.dto.HotelPackageDTO;
 import lk.ijse.nexttravel.hotelservice.hotelservice.service.HotelPackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -30,6 +32,11 @@ public class HotelPackageController {
     HotelPackageDTO saveHotel(@RequestBody HotelPackageDTO hotelPackageDTO){
         return hotelPackageService.saveHotelPackage(hotelPackageDTO);
     }
+    @GetMapping(value = "{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    HotelPackageDTO getHotelPackage(@PathVariable String id){
+        return hotelPackageService.getHotelPackage(id);
+    }
+
 
 
 
