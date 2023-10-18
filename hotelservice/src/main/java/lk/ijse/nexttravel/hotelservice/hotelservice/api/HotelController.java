@@ -38,6 +38,11 @@ public class HotelController {
         return hotelService.getSelectHotel(id);
     }
 
+    @DeleteMapping(value =  "{id}")
+    void deleteHotel(@PathVariable String id){
+        hotelService.deleteHotel(id);
+    }
+
 
 
 
