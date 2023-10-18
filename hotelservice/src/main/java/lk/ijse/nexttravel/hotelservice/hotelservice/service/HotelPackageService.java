@@ -14,5 +14,5 @@ public interface HotelPackageService {
     HotelPackageDTO saveHotelPackage(HotelPackageDTO hotelPackageDTO);
     HotelPackageDTO getHotelPackage(String id);
     void deleteHotelPackage(String id);
-    void updateHotelPackage(String id);
+    void updateHotelPackage(HotelPackageDTO hotelPackageDTO);
 }

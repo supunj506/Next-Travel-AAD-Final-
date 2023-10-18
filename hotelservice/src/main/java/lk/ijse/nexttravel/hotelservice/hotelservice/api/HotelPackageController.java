@@ -36,6 +36,11 @@ public class HotelPackageController {
     HotelPackageDTO getHotelPackage(@PathVariable String id){
         return hotelPackageService.getHotelPackage(id);
     }
+    @DeleteMapping(value =  "{id}")
+    void deleteHotelPackage(@PathVariable String id){
+        hotelPackageService.deleteHotelPackage(id);
+    }
+
 
 
 

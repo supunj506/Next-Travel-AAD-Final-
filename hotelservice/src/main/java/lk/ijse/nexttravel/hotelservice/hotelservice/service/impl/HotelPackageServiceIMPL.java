@@ -57,7 +57,13 @@ public class HotelPackageServiceIMPL implements HotelPackageService {
     }
 
     @Override
-    public void updateHotelPackage(String id) {
+    public void updateHotelPackage(HotelPackageDTO hotelPackageDTO) {
+        Optional<HotelPackage> byId = hotelPackageDAO.findById(hotelPackageDTO.getHp_id());
+        if(byId.isPresent()){
+            byId.get().setHp_price(hotelPackageDTO.getHp_price());
+        }else {
+            throw new RuntimeException("not found");
+        }
 
 
     }
