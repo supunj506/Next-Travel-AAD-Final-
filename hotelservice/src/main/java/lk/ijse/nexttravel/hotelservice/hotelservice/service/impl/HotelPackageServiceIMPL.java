@@ -8,17 +8,29 @@
 
 package lk.ijse.nexttravel.hotelservice.hotelservice.service.impl;
 
+import lk.ijse.nexttravel.hotelservice.hotelservice.dao.HotelPackageDAO;
 import lk.ijse.nexttravel.hotelservice.hotelservice.dto.HotelPackageDTO;
 import lk.ijse.nexttravel.hotelservice.hotelservice.service.HotelPackageService;
+import lk.ijse.nexttravel.hotelservice.hotelservice.util.Convertor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.UUID;
 
 @Service
 @Transactional
 public class HotelPackageServiceIMPL implements HotelPackageService {
+    @Autowired
+    private HotelPackageDAO hotelPackageDAO;
+
+    @Autowired
+    private Convertor convertor;
+
     @Override
     public HotelPackageDTO saveHotelPackage(HotelPackageDTO hotelPackageDTO) {
-        return null;
+        hotelPackageDTO.setHp_id(UUID.randomUUID().toString());
+        return convertor.getHotelPackageDTO(hotelPackageDAO.save(convertor.getHotelPackageEntity(hotelPackageDTO)));
     }
 
     @Override
