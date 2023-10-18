@@ -10,12 +10,14 @@ package lk.ijse.nexttravel.hotelservice.hotelservice.service.impl;
 
 import lk.ijse.nexttravel.hotelservice.hotelservice.dao.HotelPackageDAO;
 import lk.ijse.nexttravel.hotelservice.hotelservice.dto.HotelPackageDTO;
+import lk.ijse.nexttravel.hotelservice.hotelservice.entity.HotelPackage;
 import lk.ijse.nexttravel.hotelservice.hotelservice.service.HotelPackageService;
 import lk.ijse.nexttravel.hotelservice.hotelservice.util.Convertor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -35,7 +37,13 @@ public class HotelPackageServiceIMPL implements HotelPackageService {
 
     @Override
     public HotelPackageDTO getHotelPackage(String id) {
-        return null;
+        Optional<HotelPackage> byId = hotelPackageDAO.findById(id);
+        if(byId.isPresent()){
+            return convertor.getHotelPackageDTO(hotelPackageDAO.getReferenceById(id));
+        }else {
+            throw new RuntimeException("not Found");
+        }
+
     }
 
     @Override
