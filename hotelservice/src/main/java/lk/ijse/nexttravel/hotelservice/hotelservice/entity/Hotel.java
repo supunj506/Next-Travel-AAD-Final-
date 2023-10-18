@@ -56,8 +56,7 @@ public class Hotel {
     private
     String h_cancellation;
 
-
-    @OneToMany(mappedBy = "hotelPackage",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "hotel",cascade = CascadeType.ALL)
     private
     List<HotelPackage> hotelPackageList;
 
