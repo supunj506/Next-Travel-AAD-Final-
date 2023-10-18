@@ -41,6 +41,10 @@ public class HotelPackageController {
         hotelPackageService.deleteHotelPackage(id);
     }
 
+    @PatchMapping(consumes = "application/json")
+    void updateHotel(@RequestBody HotelPackageDTO hotelPackageDTO){hotelPackageService.updateHotelPackage(hotelPackageDTO);
+    }
+
 
 
 

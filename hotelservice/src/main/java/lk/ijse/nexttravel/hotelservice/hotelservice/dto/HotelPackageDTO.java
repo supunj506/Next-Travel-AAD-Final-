@@ -29,4 +29,9 @@ public class HotelPackageDTO implements Serializable {
         this.hp_price = hp_price;
         this.h_id = h_id;
     }
+
+    public HotelPackageDTO(String hp_id, double hp_price) {
+        this.hp_id = hp_id;
+        this.hp_price = hp_price;
+    }
 }

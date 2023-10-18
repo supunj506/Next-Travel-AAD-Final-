@@ -43,7 +43,6 @@ public class HotelPackageServiceIMPL implements HotelPackageService {
         }else {
             throw new RuntimeException("not Found");
         }
-
     }
 
     @Override
@@ -64,8 +63,6 @@ public class HotelPackageServiceIMPL implements HotelPackageService {
         }else {
             throw new RuntimeException("not found");
         }
-
-
     }
 
     private HotelPackageDTO setHotelIdToHotelPackageDTO(HotelPackage hotelPackage){
