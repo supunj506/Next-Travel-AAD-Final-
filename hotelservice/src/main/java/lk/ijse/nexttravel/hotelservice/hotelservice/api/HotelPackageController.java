@@ -8,7 +8,6 @@
 
 package lk.ijse.nexttravel.hotelservice.hotelservice.api;
 
-import lk.ijse.nexttravel.hotelservice.hotelservice.dto.HotelDTO;
 import lk.ijse.nexttravel.hotelservice.hotelservice.dto.HotelPackageDTO;
 import lk.ijse.nexttravel.hotelservice.hotelservice.service.HotelPackageService;
 import org.springframework.beans.factory.annotation.Autowired;
