@@ -39,7 +39,13 @@ public class HotelServiceIMPL implements HotelService {
 
     @Override
     public HotelDTO getSelectHotel(String id) {
-    return null;
+        Optional<Hotel> byId = hotelDAO.findById(id);
+        if(byId.isPresent()){
+            return convertor.getHotelDTO(hotelDAO.getReferenceById(id));
+        }else {
+            throw new RuntimeException("not found");
+        }
+
     }
 
     @Override
