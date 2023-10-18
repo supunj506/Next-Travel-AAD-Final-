@@ -8,12 +8,28 @@
 
 package lk.ijse.nexttravel.hotelservice.hotelservice.api;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lk.ijse.nexttravel.hotelservice.hotelservice.dto.HotelDTO;
+import lk.ijse.nexttravel.hotelservice.hotelservice.service.HotelService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/hotel")
 @CrossOrigin("*")
 public class HotelController {
+
+    @Autowired
+    private final HotelService hotelService;
+
+    public HotelController(HotelService hotelService) {
+        this.hotelService = hotelService;
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping(consumes = "application/json",produces = "application/json")
+    HotelDTO saveHotel(@RequestBody HotelDTO hotelDTO){
+        return hotelService.saveHotel(hotelDTO);
+
+    }
 }
