@@ -10,7 +10,6 @@ package lk.ijse.nexttravel.hotelservice.hotelservice.service.impl;
 
 import lk.ijse.nexttravel.hotelservice.hotelservice.dao.HotelPackageDAO;
 import lk.ijse.nexttravel.hotelservice.hotelservice.dto.HotelPackageDTO;
-import lk.ijse.nexttravel.hotelservice.hotelservice.entity.Hotel;
 import lk.ijse.nexttravel.hotelservice.hotelservice.entity.HotelPackage;
 import lk.ijse.nexttravel.hotelservice.hotelservice.service.HotelPackageService;
 import lk.ijse.nexttravel.hotelservice.hotelservice.util.Convertor;
@@ -33,18 +32,14 @@ public class HotelPackageServiceIMPL implements HotelPackageService {
     @Override
     public HotelPackageDTO saveHotelPackage(HotelPackageDTO hotelPackageDTO) {
         hotelPackageDTO.setHp_id(UUID.randomUUID().toString());
-        return setHotelId(hotelPackageDAO.save(convertor.getHotelPackageEntity(hotelPackageDTO)));
+        return setHotelIdToHotelPackageDTO(hotelPackageDAO.save(convertor.getHotelPackageEntity(hotelPackageDTO)));
     }
 
     @Override
     public HotelPackageDTO getHotelPackage(String id) {
         Optional<HotelPackage> byId = hotelPackageDAO.findById(id);
         if(byId.isPresent()){
-            HotelPackage referenceById = hotelPackageDAO.getReferenceById(id);
-            HotelPackageDTO hotelPackageDTO = convertor.getHotelPackageDTO(referenceById);
-            hotelPackageDTO.setH_id(referenceById.getHotel().getH_id());
-            return hotelPackageDTO;
-
+            return setHotelIdToHotelPackageDTO(hotelPackageDAO.getReferenceById(id));
         }else {
             throw new RuntimeException("not Found");
         }
@@ -61,7 +56,7 @@ public class HotelPackageServiceIMPL implements HotelPackageService {
 
     }
 
-    private HotelPackageDTO setHotelId(HotelPackage hotelPackage){
+    private HotelPackageDTO setHotelIdToHotelPackageDTO(HotelPackage hotelPackage){
         HotelPackageDTO hotelPackageDTO = convertor.getHotelPackageDTO(hotelPackage);
         hotelPackageDTO.setH_id(hotelPackage.getHotel().getH_id());
         return hotelPackageDTO;
