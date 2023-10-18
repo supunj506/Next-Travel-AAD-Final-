@@ -48,11 +48,17 @@ public class HotelPackageServiceIMPL implements HotelPackageService {
 
     @Override
     public void deleteHotelPackage(String id) {
-
+        Optional<HotelPackage> byId = hotelPackageDAO.findById(id);
+        if(byId.isPresent()){
+            hotelPackageDAO.delete(hotelPackageDAO.getReferenceById(id));
+        }else {
+            throw new RuntimeException("Not Found");
+        }
     }
 
     @Override
     public void updateHotelPackage(String id) {
+
 
     }
 
