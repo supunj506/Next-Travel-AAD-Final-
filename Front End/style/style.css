@@ -1,0 +1,70 @@
+<!--
+/*
+ * Author  : supun@mj
+ * Project : Spring Boot Final Project
+ * Date    : 10/19/2023 
+ * Time    : 10:25 AM
+ * For GDSE course of IJSE Institute.
+*/
+-->
+body{
+    margin: 0;
+    background:#f5f5f5;
+}
+header{
+    display: flex;
+    width: 100%;
+    height: 7vh;
+    justify-content: space-between;
+    background: white;
+    position: fixed;
+    top: 0;
+
+}
+header > section{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+header> section:first-child{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+}
+header> section:nth-child(2){
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+}
+header > section:first-child > img {
+    width: 80%;
+    height: 70%;
+    margin-left: 3%;
+}
+
+header > section:nth-child(2) > div {
+
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+
+}
+
+header > section:nth-child(2) > div:first-child {
+    width: 60%;
+    justify-content: space-around;
+    font-size: 20px;
+
+}
+header > section:nth-child(2) > div:nth-child(2) {
+    width: 20%;
+    justify-content: space-evenly;
+    font-size: 2px;
+}
+header > section:nth-child(2) > div:nth-child(2) > img {
+    margin-left: 20%;
+    width: 15%;
+}
