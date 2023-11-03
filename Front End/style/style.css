@@ -46,7 +46,7 @@ header > section{
     display: flex;
     justify-content: space-between;
 }
-#header_item_section> div:first-child{
+#manu_item{
     width: 70%;
     height: 80%;
     /*background: grey;*/
@@ -55,7 +55,8 @@ header > section{
     align-items: center;
     margin-top: 2%;
 }
-#header_item_section > div:nth-child(2){
+
+#manu_button{
     width: 30%;
     height: 80%;
     display: flex;
@@ -68,10 +69,16 @@ header > section{
 
 main{
     margin-top: 60px;
-    margin-left: 10px;
+
+
 }
 
-#dropdown-center{
-    width: 10px!important;
-    height: 10%;
+#home_page{
+    /*background-image: url("/assets/image/girlImage.jpg");*/
+    /*background-position: center;*/
+    /*background-size: cover;*/
+    /*opacity: 90%;*/
+
+    width: 100%;
+    height: 90vh;
 }
